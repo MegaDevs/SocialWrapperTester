@@ -511,33 +511,19 @@ public class SocialWrapperTester extends ListActivity {
 			@Override
 			public void onClick(View arg0) {
 				
-				File f = new File("/sdcard/test2.jpg");
-				InputStream s;
-				try {
-					s = new FileInputStream(f);
-					byte[] image = new byte[(int) f.length()];
-					while (s.available() > 0)
-						s.read(image);
-
-					System.out.println("lenght = " + image.length);
-
-					tu.uploadImage(image, "", new TheTumblr.TheTumblrPostPictureCallback() {
-						@Override
-						public void onPostPictureCallback(String result) {
-							System.out.println("image uploaded!");
-						}
-						
-						@Override
-						public void onErrorCallback(String error, Exception e) {
-							System.out.println("image upload error");
-						}
-					});
-
-				} catch (FileNotFoundException e1) {
-					e1.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				String testImage = "http://s3.amazonaws.com/data.tumblr.com/tumblr_lsiep6Ci5X1r4nro1o1_1280.jpg?AWSAccessKeyId=AKIAJ6IHWSU3BX3X7X3Q&Expires=1332421467&Signature=u5aSzeooFxEsAdiUaS231NrZnnM%3D";
+				
+				tu.uploadImage(testImage, "", new TheTumblr.TheTumblrPostPictureCallback() {
+					@Override
+					public void onPostPictureCallback(String result) {
+						System.out.println("image uploaded!");
+					}
+					
+					@Override
+					public void onErrorCallback(String error, Exception e) {
+						System.out.println("image upload error");
+					}
+				});
 			}
 		});
 		
