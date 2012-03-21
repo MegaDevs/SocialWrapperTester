@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.megadevs.socialwrappertester"
+      android:versionCode="1"
+      android:versionName="1.0">
+    
+    <uses-sdk android:minSdkVersion="8" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+    
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".SocialWrapperTester"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+		<activity android:name="com.megadevs.socialwrapper.thetwitter.TheTwitterWebView"
+			android:launchMode="singleInstance">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="T4JOAuth" android:host="main" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name="com.megadevs.socialwrapper.thefacebook.TheFacebookActivity" >
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="fbconnect" android:host="success" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name="com.megadevs.socialwrapper.thefoursquare.TheFoursquareActivity"
+			android:launchMode="singleInstance">
+			<intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="fsapitest" android:host="connect" />
+			</intent-filter>
+		</activity>
+
+		<activity android:name="com.megadevs.socialwrapper.theflickr.TheFlickrWebView"
+            android:launchMode="singleTask">
+
+		    <intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="flickr://oauth" />
+			</intent-filter>
+            
+        </activity>
+		
+		<activity android:name="com.megadevs.socialwrapper.thetumblr.TheTumblrWebView"
+            android:launchMode="singleInstance">
+
+		    <intent-filter>
+				<action android:name="android.intent.action.VIEW" />
+				<category android:name="android.intent.category.DEFAULT" />
+				<category android:name="android.intent.category.BROWSABLE" />
+				<data android:scheme="oauthflow-tumblr" android:host="callback" />
+			</intent-filter>
+            
+        </activity>
+		
+	</application>
+	
+</manifest>
